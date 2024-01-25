@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "214737528128",
+    "project_id": "login02-ead5a",
+    "storage_bucket": "login02-ead5a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214737528128:android:03b4e528faab5008ff86a5",
+        "android_client_info": {
+          "package_name": "com.example.ez05"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLF8KlT5SI2Yb12qOJSC7_i1NgY44pixY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
