@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.ez05.databinding.ActivityLoginBinding
-import com.example.ez05.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class login : AppCompatActivity() {
@@ -20,18 +19,18 @@ class login : AppCompatActivity() {
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
-
+        //ไปยังหน้า register
         binding.textView.setOnClickListener {
             val intent = Intent(this ,register::class.java)
-            startActivity((intent))
+            startActivity(intent)
         }
-
+        //เมื่อกดปุ่ม
         binding.button.setOnClickListener {
             val email = binding.emailEr.text.toString()
-            var pass = binding.passEr.text.toString()
+            val pass = binding.passEr.text.toString()
 
             if(email.isNotEmpty() && pass.isNotEmpty()){
-
+            //นำข้อมูลเออกมาเช็ค
                 firebaseAuth.signInWithEmailAndPassword(email,pass).addOnCompleteListener {
                     if (it.isSuccessful){
                         val intent = Intent(this ,MainActivity::class.java)
@@ -51,6 +50,7 @@ class login : AppCompatActivity() {
 
 
     }
+    //เงื่อนไขเช็คว่ามีค่าซำ้ไหมฆ
     override fun onStart() {
         super.onStart()
         if(firebaseAuth.currentUser !=null){

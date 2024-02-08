@@ -21,15 +21,16 @@ class register : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        //ไปยังหน้า login
         binding.textView.setOnClickListener {
             val intent = Intent(this ,login::class.java)
-            startActivity((intent))
+            startActivity(intent)
         }
-
+        //เมื่อกดปุ่ม
         binding.button.setOnClickListener {
             val email = binding.emailEr.text.toString()
             var pass = binding.passEr.text.toString()
-
+        //นำข้อมูลเข้าสู่ ฐานข้อมูล  หากสมัครสำเร็จให้ไแหน้า login
             if(email.isNotEmpty() && pass.isNotEmpty()){
                 firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener {
                     if (it.isSuccessful){
@@ -44,6 +45,7 @@ class register : AppCompatActivity() {
                 val intent = Intent(this ,login::class.java)
                 startActivity((intent))
             }else{
+                //เช็คค่าว่าว่างหรือไม่ถ้าว่าให้แจ้งเตื่อน
                 Toast.makeText(this,"กรุณากรอกให้ครบ", Toast.LENGTH_SHORT).show()
             }
         }
